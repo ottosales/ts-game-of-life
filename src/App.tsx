@@ -1,5 +1,10 @@
 import React, { useState, useCallback, useRef } from 'react';
 import produce from 'immer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 const nRows = 40;
 const nColumns = 50;
@@ -62,54 +67,140 @@ const App: React.FC = () => {
 		setTimeout(runSimulation, 75);
 	}, []);
 
-	return <div style={{
-		display: 'flex',
-		justifyContent: 'space-around',
-		marginTop: '1%'
-	}}>
-		<div style={{
-			display: 'flex',
-			flexDirection: 'column',
-			flexWrap: 'wrap',
+	return <Container fluid
+		style={{
+			marginTop: '2%'
 		}}>
-			<button onClick={() => {
-				setRunning(!running);
-				if (!running) {
-					runningRef.current = true;
-					runSimulation();
-				}
-			}}> {running ? 'Stop Sim' : 'Run Sim'} </button>
-			{/* <button onClick={() => alert('clicked!')}> button text </button> */}
-			{/* <button onClick={() => alert('clicked!')}> button text </button> */}
-		</div>
+		<Row>
+			<Col md={3} style={{ textAlign: 'center' }}>
+				<h2 style={{ marginBottom: 100 }}>Conway's Game of Life</h2>
+				<button
+					style={{
+						paddingLeft: 35,
+						paddingRight: 35,
+						paddingTop: 12,
+						paddingBottom: 12,
+						fontSize: 18,
+						fontWeight: 800,
+						color: running ? 'coral' : 'oldlace',
+						borderRadius: 5,
+						backgroundColor: running ? 'cornsilk' : 'coral',
+						alignSelf: 'flex-start',
+						marginBottom: 6,
+						minWidth: '48%',
+						textAlign: 'center',
+						borderColor: 'white'
+					}}
+					onClick={() => {
+						setRunning(!running);
+						if (!running) {
+							runningRef.current = true;
+							runSimulation();
+						}
+					}}> {running ? 'Stop Sim' : 'Run Sim'} </button>
+					<button
+					style={{
+						paddingLeft: 35,
+						paddingRight: 35,
+						paddingTop: 12,
+						paddingBottom: 12,
+						fontSize: 18,
+						fontWeight: 800,
+						color: 'oldlace',
+						borderRadius: 5,
+						backgroundColor:  'coral',
+						alignSelf: 'flex-start',
+						marginBottom: 6,
+						minWidth: '48%',
+						textAlign: 'center',
+						borderColor: 'white'
+					}}
+					onClick={() => alert(`I didn't spend a sec working on responsivity, and I work on a big screen (1920x1080 24").\nIf you can't see things properly, I'm sorry.`)}> my dude I can't see shit </button>
+			</Col>
 
-		<div style={{
-			display: 'grid',
-			gridTemplateColumns: `repeat(${nColumns}, 20px)`
-		}}>
-			{grid.map((rows, i) => rows.map((col, j) => <div
-				key={`${i}-${j}`}
-				onClick={() => {
-					const newGrid = produce(grid, gridCopy => {
-						gridCopy[i][j] = grid[i][j] === 1 ? 0 : 1;
-					})
-					setGrid(newGrid)
-				}}
-				style={{
-					width: 20,
-					height: 20,
-					backgroundColor: grid[i][j] ? '#5e99c5' : undefined,
-					border: 'solid 1px #979797'
-				}} />)
-			)}
-		</div>
+			<Col md={6} className="d-flex justify-content-around">
+				<div style={{
+					display: 'grid',
+					gridTemplateColumns: `repeat(${nColumns}, 20px)`
+				}}>
+					{grid.map((rows, i) => rows.map((col, j) => <div
+						key={`${i}-${j}`}
+						onClick={() => {
+							const newGrid = produce(grid, gridCopy => {
+								gridCopy[i][j] = grid[i][j] === 1 ? 0 : 1;
+							})
+							setGrid(newGrid)
+						}}
+						style={{
+							width: 20,
+							height: 20,
+							backgroundColor: grid[i][j] ? 'coral' : undefined,
+							border: 'solid 1px #979797'
+						}} />)
+					)}
+				</div>
+			</Col>
 
-		<div>
-			<button onClick={() => alert('clicked!')}> button text </button>
-			{/* <button onClick={() => alert('clicked!')}> button text </button> */}
-			{/* <button onClick={() => alert('clicked!')}> button text </button> */}
-		</div>
-	</div>;
+			<Col md={3} style={{ textAlign: 'center' }}>
+			<button
+					style={{
+						paddingLeft: 35,
+						paddingRight: 35,
+						paddingTop: 12,
+						paddingBottom: 12,
+						fontSize: 18,
+						fontWeight: 800,
+						color: 'oldlace',
+						borderRadius: 5,
+						backgroundColor:  'coral',
+						alignSelf: 'flex-start',
+						marginBottom: 6,
+						minWidth: '48%',
+						textAlign: 'center',
+						borderColor: 'white'
+					}}> placeholder for later </button>
+					<button
+					style={{
+						paddingLeft: 35,
+						paddingRight: 35,
+						paddingTop: 12,
+						paddingBottom: 12,
+						fontSize: 18,
+						fontWeight: 800,
+						color: 'oldlace',
+						borderRadius: 5,
+						backgroundColor:  'coral',
+						alignSelf: 'flex-start',
+						marginBottom: 6,
+						minWidth: '48%',
+						textAlign: 'center',
+						borderColor: 'white'
+					}}> placeholder for later </button>
+					<button
+					style={{
+						paddingLeft: 35,
+						paddingRight: 35,
+						paddingTop: 12,
+						paddingBottom: 12,
+						fontSize: 18,
+						fontWeight: 800,
+						color: 'oldlace',
+						borderRadius: 5,
+						backgroundColor:  'coral',
+						alignSelf: 'flex-start',
+						marginBottom: 6,
+						minWidth: '48%',
+						textAlign: 'center',
+						borderColor: 'white'
+					}}> placeholder for later </button>
+			</Col>
+
+		</Row>
+		<Row>
+			<p style={{ textAlign: 'center', marginTop: 50}}>Made with React and React-Bootstrap</p>
+		</Row>
+	</Container>;
+
 }
 
 export default App;
