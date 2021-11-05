@@ -72,7 +72,7 @@ const App: React.FC = () => {
 			marginTop: '2%'
 		}}>
 		<Row>
-			<Col md={3} style={{ textAlign: 'center' }}>
+			<Col xxl={3} lg={12} style={{ textAlign: 'center', marginBottom: 100 }}>
 				<h2 style={{ marginBottom: 100 }}>Conway's Game of Life</h2>
 				<button
 					style={{
@@ -85,7 +85,7 @@ const App: React.FC = () => {
 						color: running ? 'coral' : 'oldlace',
 						borderRadius: 5,
 						backgroundColor: running ? 'cornsilk' : 'coral',
-						alignSelf: 'flex-start',
+						alignSelf: 'center',
 						marginBottom: 6,
 						minWidth: '48%',
 						textAlign: 'center',
@@ -109,7 +109,7 @@ const App: React.FC = () => {
 						color: 'oldlace',
 						borderRadius: 5,
 						backgroundColor:  'coral',
-						alignSelf: 'flex-start',
+						alignSelf: 'center',
 						marginBottom: 6,
 						minWidth: '48%',
 						textAlign: 'center',
@@ -118,7 +118,7 @@ const App: React.FC = () => {
 					onClick={() => alert(`I didn't spend a sec working on responsivity, and I work on a big screen (1920x1080 24").\nIf you can't see things properly, I'm sorry.`)}> my dude I can't see shit </button>
 			</Col>
 
-			<Col md={6} className="d-flex justify-content-around">
+			<Col xxl={9} lg={12} className="d-flex justify-content-around">
 				<div style={{
 					display: 'grid',
 					gridTemplateColumns: `repeat(${nColumns}, 20px)`
@@ -140,62 +140,8 @@ const App: React.FC = () => {
 					)}
 				</div>
 			</Col>
-
-			<Col md={3} style={{ textAlign: 'center' }}>
-			<button
-					style={{
-						paddingLeft: 35,
-						paddingRight: 35,
-						paddingTop: 12,
-						paddingBottom: 12,
-						fontSize: 18,
-						fontWeight: 800,
-						color: 'oldlace',
-						borderRadius: 5,
-						backgroundColor:  'coral',
-						alignSelf: 'flex-start',
-						marginBottom: 6,
-						minWidth: '48%',
-						textAlign: 'center',
-						borderColor: 'white'
-					}}> placeholder for later </button>
-					<button
-					style={{
-						paddingLeft: 35,
-						paddingRight: 35,
-						paddingTop: 12,
-						paddingBottom: 12,
-						fontSize: 18,
-						fontWeight: 800,
-						color: 'oldlace',
-						borderRadius: 5,
-						backgroundColor:  'coral',
-						alignSelf: 'flex-start',
-						marginBottom: 6,
-						minWidth: '48%',
-						textAlign: 'center',
-						borderColor: 'white'
-					}}> placeholder for later </button>
-					<button
-					style={{
-						paddingLeft: 35,
-						paddingRight: 35,
-						paddingTop: 12,
-						paddingBottom: 12,
-						fontSize: 18,
-						fontWeight: 800,
-						color: 'oldlace',
-						borderRadius: 5,
-						backgroundColor:  'coral',
-						alignSelf: 'flex-start',
-						marginBottom: 6,
-						minWidth: '48%',
-						textAlign: 'center',
-						borderColor: 'white'
-					}}> placeholder for later </button>
-			</Col>
-
 		</Row>
+		
 		<Row>
 			<p style={{ textAlign: 'center', marginTop: 50}}>Made with React and React-Bootstrap</p>
 		</Row>
