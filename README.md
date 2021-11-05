@@ -1,5 +1,5 @@
 # Conway's Game of Life
-## made using Typescriopt, react and bootstrap
+## made using Typescript, React and Bootstrap
 
 You can check it out here: https://ottosales.github.io/ts-game-of-life/
 
